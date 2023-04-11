@@ -1,0 +1,33 @@
+---
+import TableOfContentsHeading from "./TableOfContentsHeading.astro"
+
+export interface Props {
+	headings: Array<any>
+	maxDepth: number
+	beheadDepth: number
+}
+
+const { headings, maxDepth = Infinity, beheadDepth = 0 } = Astro.props
+
+const xs = headings // handle not starting at depth 1 and holes
+	.filter(x => x.depth - 1 <= maxDepth)
+	.map(x => ({ ...x, depth: x.depth - 1}))
+
+const root = []
+const levels = [root]
+
+const minDepth = xs.reduce((x, a) => Math.max(x.depth, a), 0)
+// console.log(xs)
+// console.log(minDepth)
+
+for (const x of xs) {
+	const node = { ...x, children: [] }
+	levels[x.depth - 1].push(node)
+	levels[x.depth] = node.children
+}
+---
+<nav class="prose prose-sm prose-slate hover:prose-a:underline prose-a:no-underline">
+	<ol>
+		{root.map(heading => <TableOfContentsHeading heading={heading} />)}
+	</ol>
+</nav>

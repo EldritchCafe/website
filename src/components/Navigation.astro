@@ -1,0 +1,15 @@
+---
+const current = new URL(Astro.request.url).pathname
+
+const routes = {
+	"/rules": "Rules",
+	"/moderation-guidelines": "Moderation guidelines",
+}
+---
+<nav class="flex space-x-4 text-slate-700 text-sm font-semibold">
+	{Object.entries(routes).map(([path, name]) => (
+		<a class:list={["hover:text-violet-500", {"text-violet-500": current === path}]} href={path}>
+			{name}
+		</a>
+	))}
+</nav>

@@ -1,9 +1,16 @@
 ---
+import { Image } from 'astro:assets'
+import Navigation from '@components/Navigation.astro'
+import TableOfContents from '@components/TableOfContents.astro'
+import icon from '../assets/images/logo.png'
+import banner from '../assets/images/banner.jpg'
+
 export interface Props {
-	title: string;
+	title: string
 }
 
-const { title } = Astro.props;
+const { frontmatter, headings } = Astro.props
+const { title = frontmatter.title } = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -11,25 +18,82 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href={icon} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		<style>
+			[x-cloak] {
+				display: none !important;
+			}
+		</style>
+
+		<script>
+			import Alpine from 'alpinejs'
+			import intersect from '@alpinejs/intersect'
+
+			Alpine.plugin(intersect)
+			Alpine.start()
+		</script>
 	</head>
-	<body>
-		<slot />
+	<body class="min-h-screen flex flex-col bg-slate-200 text-slate-500 scroll-smooth">
+		<header class="fixed top-0 z-10 w-full h-16 bg-slate-50/80 backdrop-blur border-b border-slate-900/20">
+			<div class="container mx-auto px-4 py-4 flex items-center">
+				<a href="/" class="flex items-center gap-2 flex-shrink-0">
+					<Image src={icon} alt="logo" class="w-8" />
+
+					<span class="text-slate-700 text-lg font-semibold hidden md:block">
+						Eldritch Café
+					</span>
+				</a>
+
+				<div class="ml-auto">
+					<Navigation/>
+				</div>
+			</div>
+		</header>
+
+		<Image
+			src={banner}
+			aspectRatio="16:9"
+			alt="Banner"
+			class="w-full max-h-[40vh] object-cover"
+		/>
+
+		<div class="flex flex-col px-4 mx-auto -mt-16 mb-8 flex-grow">
+			<div class="bg-slate-50 px-10 py-8 rounded-lg flex-grow">
+				<div class="flex flex-col lg:flex-row-reverse justify-between lg:gap-16">
+					{headings && headings.length > 0 && (
+						<div class="sticky top-[4rem] w-full bg-slate-50/80 backdrop-blur lg:bg-slate-50">
+							<div class="sticky top-[4rem] w-full lg:w-64 py-4">
+								<div class="text-sm" x-data="{open: false}">
+									<button type="button" class="lg:hidden px-2 py-1 border border-violet-500 rounded-lg text-slate-900 font-semibold" x-bind:class="{'bg-violet-100': open}" x-on:click="open = !open">
+										On this page
+										<span class="inline-block" x-bind:class="{'rotate-90': open}">{">"}</span>
+									</button>
+
+									<p class="hidden lg:block text-slate-900 font-semibold">On this page</p>
+
+									<div class="hidden lg:block bg-violet-100 lg:bg-transparent p-2 lg:p-0  mt-2 w-full border lg:border-0 border-violet-500 rounded-lg" x-bind:class="{'hidden': !open}">
+										<TableOfContents headings={headings} maxDepth={1} beheadDepth={1}/>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					)}
+
+					<div class="prose prose-slate prose-headings:scroll-mt-20">
+						<h1>{title}</h1>
+
+						<slot />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="w-full h-12 bg-slate-900 text-slate-300 flex justify-center items-center">
+			Created by Eldritch Café - Hosted on Netlify
+		</footer>
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>
