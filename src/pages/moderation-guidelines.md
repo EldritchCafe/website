@@ -7,10 +7,9 @@ title: Moderation Guidelines
 
 Protection of our users, especially those marginalized and dealing with systemic oppression, has priority over federation reach or the preservation of existing followers/followees network. As a result, these are the guiding principles for all moderation work at eldritch.cafe:
 
-* Power dynamics within the team that echo systems of oppression should be prevented; and if this fails, they must be redressed and corrected immediately.
+* Power dynamics within the team that echo systems of oppression should be prevented; and if this fails, they must be addressed and corrected immediately.
 * Moderation should be as transparent as possible.
 * Moderation should be as proactive as possible to avoid putting the burden of moderation on users and therefore unnecessarily exposing them to harmful content.
-
 
 # Conduct
 
@@ -24,9 +23,6 @@ Protection of our users, especially those marginalized and dealing with systemic
     * Lack of direct knowledge of culture, events, or other context critical to understanding an issue
     * etc.
 * Moderators should not subtoot or otherwise post about moderation work, particularly specific reports and incidents that are undergoing or have undergone moderation. Venting should preferably happen in private.
-
-
-
 
 # Communication
 
