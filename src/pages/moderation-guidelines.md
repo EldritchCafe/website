@@ -2,7 +2,6 @@
 layout: ../layouts/Layout.astro
 title: Moderation Guidelines
 ---
-
 # Guiding principles
 
 Protection of our users, especially those marginalized and dealing with systemic oppression, has priority over federation reach or the preservation of existing followers/followees network. As a result, these are the guiding principles for all moderation work at eldritch.cafe:
@@ -22,7 +21,7 @@ Protection of our users, especially those marginalized and dealing with systemic
     * Traumatic or otherwise negative experience with a topic
     * Lack of direct knowledge of culture, events, or other context critical to understanding an issue
     * etc.
-* Moderators should not subtoot or otherwise post about moderation work, particularly specific reports and incidents that are undergoing or have undergone moderation. Venting should preferably happen in private.
+* Moderators should exercise caution and restraint when posting publicly about moderation work to ensure sensitive details, such as report contents, are treated with all necessary safety and privacy considerations. Publicly addressing grievances if a moderator feels other means are exhausted or not viable is expressly not prohibited or discouraged.
 
 # Communication
 
@@ -99,11 +98,13 @@ The measures described below are for defined cases where consensus is not requir
 
 ### Immediate threat
 
-* fascist/nazi/alt-right instance
-* instances with proximity to known bad actors
+* fascist/nazi/alt-right instances
+* instances with proximity to known bad actors, such as endorsing, knowingly tolerating, sharing moderation staff with, or propagating significant amounts of content from harmful instances.
 * non-isolated or systematic harassment, doxxing (such as kiwifarms)
 * non-moderated "free speech" instances
 * instances that engage in or support archiving, non-isolated spam, or other disrespect of expected federation of content (ignore visibility, etc) that threaten users' safety or privacy
+
+Examples of "proximity to bad actors" include deciding to limit but not suspend an instance, listing an instance using the "local bubble" or similar features, or staff following users on or sharing content from an instance.
 
 **These instances should be defederated as fast as possible.** Moderators can suspend without prior peer approval.
 
@@ -124,6 +125,14 @@ For all other non-immediate issues, such as a mismatch of server rules where ano
 
 # Internal management
 
+In addition to the code of conduct that governs interactions between moderators:
+* Reports, issues, or complaints against a moderator will be discussed by the entire team and actions decided accordingly.
+* Moderators can request the temporary and immediate demotion of any moderator due to suspicion of rogue behavior or violation of guidelines. Probation periods can last anywhere from a week to 30 days, during which time, the behavior in question will be investigated and redressed, or until action has been taken and the moderation team considers the  problem resolved.
+
+## Conflict resolution
+
+If a moderator needs to raise any concerns or complaints over the operation of the moderation team, they can initiate, either directly or through the administration team, a collective discussion of the issue on a dedicated communication channel.
+
 ## Moderator addition
 
 * If the current moderation team becomes unable to handle moderation duties, additional moderators will be recruited in a timely manner.
@@ -131,9 +140,7 @@ For all other non-immediate issues, such as a mismatch of server rules where ano
 
 ## Moderator removal
 
-* Reports, issues, or complaints against a moderator will be discussed by the entire team and actions decided accordingly.
-* Moderators can request the temporary and immediate demotion of any moderator due to suspicion of rogue behavior or violation of guidelines.  Probation periods can last anywhere from a week to 30 days, during which time, the behavior in question will be investigated and redressed, or until action has been taken and the moderation team considers the  problem resolved.
-* The rest of the team may decide by consensus to have the moderator to step down.
+* The moderation team may decide by consensus to have a moderator to step down.
 
 # Additional notes
 
