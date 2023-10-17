@@ -9,8 +9,5 @@ export default defineConfig({
     remarkPlugins: [[behead, {
       depth: 1
     }]]
-  },
-  experimental: {
-    assets: true
   }
 });
